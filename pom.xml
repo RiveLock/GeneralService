@@ -11,7 +11,7 @@
     <groupId>com.general</groupId>
     <artifactId>support</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>support</name>
+    <name>general-support</name>
     <description>通用支撑服务</description>
     <properties>
         <java.version>1.8</java.version>
