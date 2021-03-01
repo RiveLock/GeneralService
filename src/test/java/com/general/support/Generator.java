@@ -22,14 +22,19 @@ import java.sql.SQLException;
 public class Generator {
 
     /**
-     * 代码作者
+     * 是否运行初始化脚本
      */
-    private final String AUTHOR = "John J";
+    private final boolean isRunScript = true;
 
     /**
-     * 表数据
+     * 初始化表数据位置
      */
     private final String TABLE_DATA = "/db/table-data.sql";
+
+    /**
+     * 要生成代码的表
+     */
+    private final String INCLUDE_TABLE = "user";
 
     /**
      * 包名，最终生成路径
@@ -50,6 +55,11 @@ public class Generator {
      * 数据库密码
      */
     private final String PASSWORD = "root";
+
+    /**
+     * 代码作者
+     */
+    private final String AUTHOR = "John J";
 
     /**
      * 生成代码
@@ -80,7 +90,9 @@ public class Generator {
         DataSourceConfig dataSourceConfig = new DataSourceConfig.Builder(JDBC, USER_NAME, PASSWORD).driver(com.mysql.cj.jdbc.Driver.class)
                 .build();
         // 运行脚本，添加表和数据
-        runScript(dataSourceConfig);
+        if (isRunScript) {
+            runScript(dataSourceConfig);
+        }
         return dataSourceConfig;
     }
 
@@ -104,7 +116,7 @@ public class Generator {
      * 策略配置
      */
     private StrategyConfig strategyConfig() {
-        return new StrategyConfig.Builder().addTablePrefix("t_") //统一表前缀
+        return new StrategyConfig.Builder().addInclude(INCLUDE_TABLE).addTablePrefix("t_") //统一表前缀
                 .entityBuilder()  // 实体相关配置
                 .naming(NamingStrategy.underline_to_camel).columnNaming(NamingStrategy.underline_to_camel).lombok(true)
                 .addSuperEntityColumns("id", "create_time", "update_time").superClass(BaseEntity.class)   //自动识别父类字段
