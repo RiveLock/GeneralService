@@ -2,7 +2,7 @@ package com.general.support.sample.service.impl;
 
 import com.general.support.sample.entity.User;
 import com.general.support.sample.mapper.UserMapper;
-import com.general.support.sample.service.IUserService;
+import com.general.support.sample.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author John J
- * @since 2021-03-01
+ * @since 2021-03-02
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
 }

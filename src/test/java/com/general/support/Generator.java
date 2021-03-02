@@ -1,8 +1,11 @@
 package com.general.support;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.baomidou.mybatisplus.generator.fill.Column;
@@ -11,10 +14,13 @@ import com.general.support.common.pojo.BaseEntity;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 代码生成器
@@ -34,7 +40,7 @@ public class Generator {
     /**
      * 要生成代码的表
      */
-    private final String INCLUDE_TABLE = "user";
+    private final String[] INCLUDE_TABLE = { "user" };
 
     /**
      * 包名，最终生成路径
@@ -71,7 +77,7 @@ public class Generator {
                 .strategy(strategyConfig())  // 策略
                 .engine(new FreemarkerTemplateEngine())  // 引擎
                 .template(templateConfig())  // 模版
-                .execute();
+                .injection(injectionConfig()).execute();
     }
 
     private void runScript(DataSourceConfig dataSourceConfig) throws SQLException {
@@ -101,8 +107,8 @@ public class Generator {
      */
     private GlobalConfig globalConfig() {
         final String outPutDir = System.getProperty("user.dir") + "/src/main/java";
-        return new GlobalConfig.Builder().outputDir(outPutDir).author(AUTHOR).openDir(true).fileOverride(true).swagger2(true)
-                .baseResultMap(true).build();
+        return new GlobalConfig.Builder().serviceName("%sService").outputDir(outPutDir).author(AUTHOR).openDir(true).fileOverride(true)
+                .swagger2(true).build();
     }
 
     /**
@@ -131,7 +137,30 @@ public class Generator {
      */
     private TemplateConfig templateConfig() {
         return new TemplateConfig.Builder().all()   //激活所有默认模板
-                .build();
+                .build().disable(TemplateType.XML);
+    }
+
+    /**
+     * 自定义配置
+     */
+    private InjectionConfig injectionConfig() {
+        // 自定义配置
+        InjectionConfig cfg = new InjectionConfig();
+        // 模板引擎 freemarker
+        String templatePath = "/templates/mapper.xml.ftl";
+        // 自定义输出配置
+        List<FileOutConfig> focList = new ArrayList<>();
+        // 自定义配置会被优先输出
+        focList.add(new FileOutConfig(templatePath) {
+            @Override
+            public File outputFile(TableInfo tableInfo) {
+                // 自定义输入文件名称
+                return new File(System.getProperty("user.dir") + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper"
+                        + StringPool.DOT_XML);
+            }
+        });
+        cfg.setFileOutConfigList(focList);
+        return cfg;
     }
 
 }

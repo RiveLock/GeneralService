@@ -1,7 +1,8 @@
 package com.general.support.sample.mapper;
 
-import com.general.support.sample.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.general.support.sample.entity.User;
+import com.general.support.sample.model.UserPage;
 
 /**
  * <p>
@@ -9,8 +10,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author John J
- * @since 2021-03-01
+ * @since 2021-03-02
  */
 public interface UserMapper extends BaseMapper<User> {
+
+    UserPage selectUserPage(UserPage userPage);
 
 }
