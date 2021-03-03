@@ -1,7 +1,7 @@
-package com.general.support.sample.model;
+package com.general.support.business.sample.entity.dto;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.general.support.sample.entity.User;
+import com.general.support.business.sample.entity.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

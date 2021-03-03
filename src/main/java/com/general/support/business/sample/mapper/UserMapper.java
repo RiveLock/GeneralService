@@ -1,8 +1,8 @@
-package com.general.support.sample.mapper;
+package com.general.support.business.sample.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.general.support.sample.entity.User;
-import com.general.support.sample.model.UserPage;
+import com.general.support.business.sample.entity.User;
+import com.general.support.business.sample.entity.dto.UserPage;
 
 /**
  * <p>
@@ -10,7 +10,7 @@ import com.general.support.sample.model.UserPage;
  * </p>
  *
  * @author John J
- * @since 2021-03-02
+ * @since 2021-03-03
  */
 public interface UserMapper extends BaseMapper<User> {
 

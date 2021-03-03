@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.general.support.sample.mapper")
+@MapperScan("com.general.support.business.*.mapper")
 public class SupportApplication {
 
     public static void main(String[] args) {

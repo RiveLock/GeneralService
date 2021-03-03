@@ -1,6 +1,6 @@
-package com.general.support.sample.service;
+package com.general.support.business.sample.service;
 
-import com.general.support.sample.entity.User;
+import com.general.support.business.sample.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author John J
- * @since 2021-03-02
+ * @since 2021-03-03
  */
 public interface UserService extends IService<User> {
 

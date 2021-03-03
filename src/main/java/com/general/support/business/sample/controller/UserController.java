@@ -1,4 +1,4 @@
-package com.general.support.sample.controller;
+package com.general.support.business.sample.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Controller;
  * </p>
  *
  * @author John J
- * @since 2021-03-02
+ * @since 2021-03-03
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/sample/user")
 public class UserController {
 
 }

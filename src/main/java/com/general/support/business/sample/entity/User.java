@@ -1,4 +1,4 @@
-package com.general.support.sample.entity;
+package com.general.support.business.sample.entity;
 
 import com.general.support.common.pojo.BaseEntity;
 import io.swagger.annotations.ApiModel;
@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author John J
- * @since 2021-03-02
+ * @since 2021-03-03
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
