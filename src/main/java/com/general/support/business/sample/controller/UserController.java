@@ -1,9 +1,14 @@
 package com.general.support.business.sample.controller;
 
-
+import com.general.support.business.sample.entity.User;
+import com.general.support.business.sample.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.stereotype.Controller;
+import java.util.List;
 
 /**
  * <p>
@@ -13,8 +18,16 @@ import org.springframework.stereotype.Controller;
  * @author John J
  * @since 2021-03-03
  */
-@Controller
-@RequestMapping("/sample/user")
+@RestController
+@RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/list")
+    public ResponseEntity<List<User>> list() {
+        return ResponseEntity.ok(userService.list());
+    }
 
 }

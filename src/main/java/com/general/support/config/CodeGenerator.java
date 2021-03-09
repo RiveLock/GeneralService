@@ -37,7 +37,7 @@ public class CodeGenerator {
     /**
      * 初始化表数据位置
      */
-    private static final String TABLE_DATA = "/db/table-data.sql";
+    private static final String TABLE_DATA = "/db/sample.sql";
 
     /**
      * 包名，最终生成路径
