@@ -38,6 +38,8 @@ spring:
     url: jdbc:mysql://localhost:3306/general?characterEncoding=UTF8
     username: root
     password: root
+#  redis:
+
 
 mybatis-plus:
   # 扫描 mapper.xml

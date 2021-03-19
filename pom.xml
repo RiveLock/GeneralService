@@ -47,7 +47,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- 数据库相关 start -->
+        <!-- 数据库 start -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -63,9 +63,9 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.22</version>
         </dependency>
-        <!-- 数据库相关 end -->
+        <!-- 数据库 end -->
 
-        <!--  mybatis 相关  start -->
+        <!--  mybatis  start -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -82,8 +82,20 @@
             <artifactId>freemarker</artifactId>
             <version>2.3.31</version>
         </dependency>
-        <!--  mybatis 相关 end -->
+        <!--  mybatis  end -->
 
+        <!--  redis start -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+        </dependency>
+        <!--  redis end -->
+
+        <!-- tool start -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -95,6 +107,27 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.4</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.75</version>
+        </dependency>
+
+        <!-- tool end -->
+
 
     </dependencies>
 
