@@ -1,18 +1,17 @@
 server:
   port: 8888
   servlet:
-    context-path: /general
+    context-path: /exercise
 
 spring:
   profiles:
     active: dev
   application:
-    name: general-support
+    name: exercise-service
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   datasource:
-    # 数据源使用 TODO 对比不同的主流数据源连接
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
@@ -35,7 +34,7 @@ spring:
         login-username: admin
         login-password: admin
         allow: 127.0.0.1
-    url: jdbc:mysql://localhost:3306/general?characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/exercise?characterEncoding=utf-8
     username: root
     password: root
 #  redis:
