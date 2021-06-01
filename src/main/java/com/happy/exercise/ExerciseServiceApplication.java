@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.happy.exercise.business.*.mapper")
-public class SupportApplication {
+public class ExerciseServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SupportApplication.class, args);
+        SpringApplication.run(ExerciseServiceApplication.class, args);
     }
 
 }
